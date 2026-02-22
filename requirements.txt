@@ -1,0 +1,8 @@
+torch>=2.0.0
+torchvision>=0.15.0
+gradio>=4.0.0
+numpy<2.0.0
+Pillow
+requests
+spandrel>=0.3.0
+realesrgan>=0.2.5.0
