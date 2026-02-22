@@ -325,4 +325,4 @@ with gr.Blocks(title="Image Upscaler", theme=gr.themes.Soft()) as demo:
     gr.Markdown("- The upscaled image will appear in the output box")
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=int(os.getenv("PORT", 7860)))
+    demo.queue().launch(server_name="0.0.0.0", server_port=int(os.getenv("PORT", 7860)))
