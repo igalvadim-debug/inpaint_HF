@@ -1,0 +1,101 @@
+{
+  "3": {
+    "inputs": {
+      "image": "example.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "4": {
+    "inputs": {
+      "model": "ltx-video-2b-v0.9.safetensors"
+    },
+    "class_type": "LTXVideoModelLoader",
+    "_meta": {
+      "title": "LTX Video Model Loader"
+    }
+  },
+  "5": {
+    "inputs": {
+      "conditioning": [
+        "3",
+        0
+      ],
+      "strength": 1,
+      "noise_augmentation": 0.05
+    },
+    "class_type": "LTXConditionTime",
+    "_meta": {
+      "title": "LTX Condition Time"
+    }
+  },
+  "6": {
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "conditioning": [
+        "5",
+        0
+      ],
+      "negative_conditioning": [
+        "5",
+        1
+      ],
+      "width": 1024,
+      "height": 576,
+      "frames": 93,
+      "seed": 42,
+      "steps": 28,
+      "cfg": 3.3,
+      "scheduler": "gits",
+      "denoise": 1,
+      "settings": "ltxv"
+    },
+    "class_type": "LTXSample",
+    "_meta": {
+      "title": "LTX Sample"
+    }
+  },
+  "7": {
+    "inputs": {
+      "samples": [
+        "6",
+        0
+      ],
+      "vae": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "LTXVAEDecode",
+    "_meta": {
+      "title": "LTX VAE Decode"
+    }
+  },
+  "8": {
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ],
+      "frame_rate": 25,
+      "loop_count": 0,
+      "filename_prefix": "LTXVideo",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine"
+    }
+  }
+}
