@@ -1,0 +1,3 @@
+Claude Code can be run locally by connecting it to a local LLM using tools like Ollama or code-llmss, enabling offline coding assistance, privacy, and cost savings.
+Why Use a Local LLM with Claude Code
+Running Claude Code locally offers several advantages: it keeps your code and data private, reduces costs by avoiding cloud API calls, allows offline development, and enables customization of models for specific coding tasks. Local deployment also allows you to experiment with different open-source models such as GLM-4.7-Flash, Llama 2, Mistral 7B, or Qwen3-Coder-Next.
